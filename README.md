@@ -13,7 +13,6 @@ Input the path of the annotations file then we can visualize the image from data
 ### Preprocess image
 Applied usual preprocessing steps, such as resizing, random cropping, normalizing etc<br/>
 
-![p3](https://cdn-images-1.medium.com/max/800/1*Wlg9kOHMaJ_P4KSlxxI6Tg.png)<br/>
 ### Preprocess captions
 We have used NLKT for tokenization of the captions and filtered rare words by occurence count that doesnt help in our training.
 Observer below example we have added start and end to identify the start and end of the captions that correspond to indexes 0 and 1 in out idx2word dict
@@ -31,18 +30,18 @@ We have apply pre-trained resnet50 to save time. Remember to remove the last FC 
 we just need to extract feature and connect the feature vector with LSTM in decoder. 
 Remember to freeze the parameter of the resnet50 otherwise you will destroy the trained-weight.<br/>
 
-![p4](https://cdn-images-1.medium.com/max/800/1*vye6KMbiWJBNlgVdc9OxzQ.png)<br/>
+![p4](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/encoder.PNG)<br/>
 ### Build the decoder
 We have already converted text sentence into integer token, now we add a word embedding layer to increase the 
 representation ability of our model. Don’t forget to concatenate the feature vector(image) and our 
 embedding matrix(captions) to pass into LSTM<br/>
 
 
-![p5](https://cdn-images-1.medium.com/max/800/1*5bgFMd1RkfJohL1w0GKZSA.png)<br/>
+![p5](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/decoder.PNG)<br/>
 
 Don’t forget to apply the same image preprocessing steps to the testing image set. The tesing image will go through the same preprocessing steps and feed into the model to output a token, then we map the integer token with the word2idx dictionary to get back the text token. This token also become the input of our model to predict the next token. It loops until our model read the <stop> token.<br/>
   
-![p7](https://cdn-images-1.medium.com/max/800/1*zt9fwzy5Jlvuh9HbQa5-6w.png)<br/>
-![p8](https://cdn-images-1.medium.com/max/800/1*1QGSUH9DX_NV9On01fhEFw.png)<br/>
+![p7](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/sample.PNG)<br/>
+![p8](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/prediction.PNG)<br/>
 -------------------------------------------------------------------------------------------------------------------------------------
 
