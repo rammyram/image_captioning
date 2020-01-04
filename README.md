@@ -7,8 +7,8 @@ The COCO dataset is used. We used the year 2014 data.</br>
 We can follow the official github repo to learn how to use the COCO API. 
 Input the path of the annotations file then we can visualize the image from dataset.<br/>
 
-![p1](https://cdn-images-1.medium.com/max/800/1*ZVbauT2XYcSjG850a5WS2Q.png)<br/>
-![p2](https://cdn-images-1.medium.com/max/800/1*F31mJGdooq9e8xDESuZh5A.png)<br/>
+![p1](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/load_annotations.PNG)<br/>
+![p2](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/annotations_sample.PNG)<br/>
 
 ### Preprocess image
 Applied usual preprocessing steps, such as resizing, random cropping, normalizing etc<br/>
@@ -41,7 +41,7 @@ embedding matrix(captions) to pass into LSTM<br/>
 
 Don’t forget to apply the same image preprocessing steps to the testing image set. The tesing image will go through the same preprocessing steps and feed into the model to output a token, then we map the integer token with the word2idx dictionary to get back the text token. This token also become the input of our model to predict the next token. It loops until our model read the <stop> token.<br/>
   
-![p7](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/sample.PNG)<br/>
-![p8](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/prediction.PNG)<br/>
+![p7](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/prediction2.PNG)<br/>
+![p8](https://raw.githubusercontent.com/rammyram/image_captioning/master/images/prediction2(2).PNG)<br/>
 -------------------------------------------------------------------------------------------------------------------------------------
 
